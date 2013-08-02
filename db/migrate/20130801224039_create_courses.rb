@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration
   		t.integer :grade_level
   		t.string :title
   		t.integer :period
-  		t.references :user
+  		t.references :teacher_profile
 
   		t.timestamps
   	end

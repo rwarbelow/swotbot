@@ -2,8 +2,7 @@
 <% if @parent.roles.first.parent_profile == nil %>
 	<h1 class="errors">Please fill out the following information before continuing.</h1>
 	<div class="form_box">
-		<h2>Afdkashfoiwh</h2>
-		<form action="/parents/parent_profile/<%= @parent.id %>" method="post">
+		<form action="/ParentRole/parent_profile/<%= @parent.id %>" method="post">
 			<select name="preferred_language">
         <option value="">Preferred Language</option>
         <option value="English" >English</option>
@@ -30,8 +29,8 @@
 	<div class="form_box">
 		<h2>Add a student to this account</h2>
 		<p>Enter your student's ID number to link accounts</p>
-		<form action="/parents/add_student/<%= @parent.id %>" method="post">
-		  <input type="text" name="parent[student_id]" placeholder="Student ID Number">
+		<form action="/ParentRole/<%= @parent.id %>/add_student" method="post">
+		  <input type="text" name="ccsd_id" placeholder="Student ID Number">
 		  <input type="submit" value="Add Student">
 		</form>
 	</div>

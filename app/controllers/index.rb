@@ -38,6 +38,9 @@ get '/user_landing/:user_id' do
 	end
 end
 
+post '/logout' do
+	session.clear
+end
 
 get '/page_does_not_exist' do
 	erb :page_does_not_exist

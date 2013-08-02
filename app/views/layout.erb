@@ -14,10 +14,20 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
   <title></title>
 </head>
 <body>
+  <div id="navbar">
+    <% if current_user %>
+    <% @current_user = current_user %>
+    <a href='/<%= @current_user.roles.first.type %>/<%= @current_user.id %>'>My <%= @current_user.roles.first.type %> Dashboard</a>
+    <a href="/logout">Logout</a>
+    <% else %>
+    <% end %>
+  </div>
   <%= yield %>
 </body>
 </html>

@@ -1,5 +1,7 @@
 class Course < ActiveRecord::Base
   # Remember to create a migration!
-  belongs_to :teacher, class_name: "User"
-  has_many :students, through: :courses, source: :user
+  belongs_to :teacher_profile
+  belongs_to :student_profile
+  has_many :student_profile_courses
+  has_many :student_profiles, through: :student_profile_courses
 end
