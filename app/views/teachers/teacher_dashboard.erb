@@ -1,0 +1,18 @@
+<h1>Welcome, <%= @teacher.first_name %> <%= @teacher.last_name %>!</h1>
+<% if @teacher.roles.first.teacher_profile == nil %>
+<p>OH NO!!!</p>
+<% end %>
+<% if @errors %>
+	<% @errors.each do |error| %>
+		<%= error %>
+	<% end %>
+<% end %>
+
+<div class="form_box">
+	<h2>Create a New Course</h2>
+	<form action="/teachers/courses/new_course/<%= @teacher.id %>" method="post">
+	  <input type="text" name="course[title]" placeholder="Course Title">
+	  <input type="text" name="course[grade_level]" placeholder="Grade Level">
+	  <input type="submit" value="Add Course">
+	</form>
+</div>
