@@ -21,6 +21,7 @@ post '/login' do
 	@user = User.find_by_username(params[:username])
 	if @user && @user.authenticate(params[:password])
 		redirect "/user_landing/#{@user.id}"
+		session[:id] = @user.id
 	else
 		@errors = ["Username and/or password invalid. Please try again."]
 		erb :index
@@ -38,8 +39,9 @@ get '/user_landing/:user_id' do
 	end
 end
 
-post '/logout' do
+get '/logout' do
 	session.clear
+	redirect '/'
 end
 
 get '/page_does_not_exist' do
